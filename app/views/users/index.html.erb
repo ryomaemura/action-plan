@@ -1,13 +1,12 @@
 <h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
 
 <% if @users %>
-  <ul class="users-list">
+  <div class="users-list">
     <% @users.each do |user| %>
-      <li class="user-item">
+      <a class="user-item" href="<%= user_path(user) %>">
         <p class="user-name"><%= user.name %></p>
         <p class="user-action-number"></p>
-      </li>
+      </a>
     <% end %>
-  </ul>
+  </div>
 <% end %>
