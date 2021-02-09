@@ -90,6 +90,7 @@ main {
 }
 
 .action-list,
+.user-list,
 .book-list {
   display: flex;
   flex-wrap: wrap;
@@ -98,6 +99,7 @@ main {
 }
 
 .action-item,
+.user-item,
 .book-item {
   width: 48%;
   margin-bottom: 15px;
@@ -105,7 +107,8 @@ main {
   border: 1px solid #000;
 }
 
-.action-item {
+.action-item,
+.user-item {
   box-shadow: 0 1px 5px #ccc;
   cursor: pointer;
   transition: .3s;
@@ -182,6 +185,7 @@ main {
   }
 
   .action-item,
+  .user-item,
   .book-item {
     width: 24%;
   }

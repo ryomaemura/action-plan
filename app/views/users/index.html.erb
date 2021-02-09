@@ -3,11 +3,11 @@
 </div>
 
 <% if @users %>
-  <div class="users-list">
+  <div class="user-list">
     <% @users.each do |user| %>
       <a class="user-item" href="<%= user_path(user) %>">
         <p class="user-name"><%= user.name %></p>
-        <p class="user-action-number">アクションプラン投稿数：00</p>
+        <p class="user-action-number">アクションプラン投稿数：<%= user.actions.count %></p>
       </a>
     <% end %>
   </div>
