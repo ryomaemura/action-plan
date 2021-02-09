@@ -1,5 +1,17 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="content-header">
+  <h2><%= @user.name %>さんのユーザーページ<br><%= @user.name %>さんの投稿一覧</h2>
+</div>
 
-<h1><%= @user.name %>さんのユーザーページ</h1>
-<h2><%= @user.name %>さんの投稿一覧</h2>
+<% if @user.actions %>
+  <div class="action-list">
+    <% @user.actions.each do |action| %>
+      <a class="action-item" href="<%= action_path(action) %>">
+        <div class="book-item">
+          <%= image_tag action.book_image || "no-image.jpg", alt: action.book_title, class: "book-image" %>
+          <p class="book-title"><%= action.book_title %></p>
+        </div>
+        <p class="action-content"><%= action.content %></p>
+      </a>
+    <% end %>
+  </div>
+<% end %>
