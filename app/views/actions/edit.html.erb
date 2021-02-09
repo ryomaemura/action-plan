@@ -1,0 +1,24 @@
+<div class="content-header">
+  <h2>アクションプラン id:<%= @action.id %> 編集</h2>
+</div>
+
+<%= params %>
+
+<div class="action-show">
+  <div class="action-show-info">
+    <div class="book-item">
+      <%= image_tag @action.book_image || "no-image.jpg", alt: @action.book_title, class: "book-image" %>
+      <p class="book-title"><%= @action.book_title %></p>
+      <%= link_to "show detail", @action.book_link, class: "book-link btn btn-light btn-block mb-1", target: "_blank" %>
+    </div>
+    <p class="action-show-user">投稿者<br><%= User.find(@action.user_id).name %></p>
+  </div>
+  <div class="action-plan-text-area">
+    <%= form_with model: @action, local: true, method: "patch" do |f| %>
+      <%= f.text_area :content, class: "form-control", rows: 15 %>
+      <div class="action-plan-button-area">
+        <%= f.submit "変更を保存", class: "action-plan-button btn btn-light" %>
+      </div>
+    <% end %>
+  </div>
+</div>

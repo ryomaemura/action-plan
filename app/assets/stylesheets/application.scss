@@ -1,0 +1,192 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400;500;600;700;900&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Serif JP', serif;
+}
+
+.row {
+  margin: 0;
+}
+
+a,
+a:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.btn-light {
+  border: 1px solid #777;
+}
+
+.pc-only {
+  display: none;
+}
+
+.sp-only {
+  display: block;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+main {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+.post-stage-box {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+
+  .post-stage {
+    padding: .5rem 0;
+    width: 49%;
+    text-align: center;
+    border: 1px solid rgba($color: #000, $alpha: 0.5);
+  }
+
+  .current-stage {
+    border: 2px solid rgba($color: #000, $alpha: 1);
+  }
+}
+
+.action-list,
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.action-item,
+.book-item {
+  width: 48%;
+  margin-bottom: 15px;
+  padding: 5px;
+  border: 1px solid #000;
+}
+
+.action-item {
+  box-shadow: 0 1px 5px #ccc;
+  cursor: pointer;
+  transition: .3s;
+
+  .book-item {
+    width: 100%;
+    margin-bottom: 0;
+    border: none;
+    border-bottom: 1px solid #000;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 2px 9px rgba($color: #999, $alpha: 1.0);
+  }
+}
+
+.action-show {
+  display: flex;
+}
+
+.action-show-info {
+  width: 150px;
+  margin-right: 20px;
+
+  .book-item {
+    width: 100%;
+  }
+}
+
+.action-plan-text-area {
+  width: calc(100% - 170px);
+}
+
+.action-plan-button-area {
+  text-align: right;
+}
+
+.action-plan-button {
+  padding: 10px 20px;
+}
+
+.book-image {
+  width: 100%;
+  height: 180px;
+  margin: 0 auto 5px;
+  object-fit: contain;
+}
+
+.book-title {
+  height: 50px;
+  margin: 0;
+  overflow: hidden;
+}
+
+.action-content {
+  height: 90px;
+  overflow: hidden;
+}
+
+.post-action-plan {
+  width: 100%;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .pc-only {
+    display: block;
+  }
+
+  .sp-only {
+    display: none;
+  }
+
+  .action-item,
+  .book-item {
+    width: 24%;
+  }
+
+  .action-show-info {
+    width: 24%;
+  }
+}

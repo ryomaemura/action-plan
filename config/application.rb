@@ -11,6 +11,11 @@ module ActionPlan
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
+    #Time.zone.nowとかの時に日本時間を使用する
+    config.time_zone = 'Tokyo'
+    #DBの読み書きを日本時間でやる
+    config.active_record.default_timezone = :local
+
     initializer(:remove_action_mailbox_and_activestorage_routes, after: :add_routing_paths) { |app|
       app.routes_reloader.paths.delete_if {|path| path =~ /activestorage/}
       app.routes_reloader.paths.delete_if {|path| path =~ /actionmailbox/ }

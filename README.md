@@ -1,5 +1,14 @@
 # README
 
+## Ruby on Rails version
+Rails 5.2.4.4
+
+## Ruby version
+Ruby 2.6.3
+
+## MySQL version
+MySQL 5.7.32
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

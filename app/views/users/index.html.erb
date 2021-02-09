@@ -1,11 +1,13 @@
-<h1>Users#index</h1>
+<div class="content-header">
+  <h2>ユーザー一覧</h2>
+</div>
 
 <% if @users %>
   <div class="users-list">
     <% @users.each do |user| %>
       <a class="user-item" href="<%= user_path(user) %>">
         <p class="user-name"><%= user.name %></p>
-        <p class="user-action-number"></p>
+        <p class="user-action-number">アクションプラン投稿数：00</p>
       </a>
     <% end %>
   </div>

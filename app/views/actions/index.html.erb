@@ -1,0 +1,18 @@
+<div class="content-header">
+  <h2>アクションプラン<br class="sp-only">投稿一覧</h2>
+  <a class="btn btn-dark" href="<%= new_book_path %>">アクションプラン<br class="sp-only">新規投稿</a>
+</div>
+
+<% if @actions %>
+  <div class="action-list">
+    <% @actions.each do |action| %>
+      <a class="action-item" href="<%= action_path(action) %>">
+        <div class="book-item">
+          <%= image_tag action.book_image || "no-image.jpg", alt: action.book_title, class: "book-image" %>
+          <p class="book-title"><%= action.book_title %></p>
+        </div>
+        <p class="action-content"><%= action.content %></p>
+      </a>
+    <% end %>
+  </div>
+<% end %>

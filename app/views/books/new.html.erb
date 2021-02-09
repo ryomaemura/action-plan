@@ -1,0 +1,33 @@
+<div class="content-header">
+  <h2>アクションプラン新規投稿</h2>
+</div>
+
+<div class="post-stage-box">
+  <div class="post-stage current-stage">書籍選択</div>
+  <div class="post-stage">アクションプラン</div>
+</div>
+
+<%= form_with url: search_books_path, class: "row mb-1", local: true do |f| %>
+  <%= f.text_field :keyword, class: "form-control col-10", placeholder: "書籍名、著者名で検索" %>
+  <%= f.submit "検索", class: "btn btn-light col-2" %>
+<% end %>
+
+<% if books_items = (@books ||= {}).dig("items") %>
+  <ul class="book-list">
+    <% books_items.each do |book| %>
+      <% if book_info = book.dig("volumeInfo") %>
+        <li class="book-item">
+          <%= image_tag book_image = book_info.dig("imageLinks", "thumbnail") || "no-image.jpg", alt: book_title = book_info.dig("title"), class: "book-image" %>
+          <p class="book-title"><%= book_title %></p>
+          <%= link_to "show detail", book_link = book_info.dig("infoLink"), class: "book-link btn btn-light btn-block mb-1", target: "_blank" %>
+          <%= form_with url: new_action_path, method: "get", local: true do |f| %>
+            <%= hidden_field_tag :book_title, book_title %>
+            <%= hidden_field_tag :book_image, book_image %>
+            <%= hidden_field_tag :book_link, book_link %>
+            <%= f.submit "select book", class: "btn btn-light btn-block" %>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
